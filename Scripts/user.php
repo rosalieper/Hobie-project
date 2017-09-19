@@ -7,12 +7,12 @@
 
 class User extends Connection{ 
 	
-	Public $email;
-	Public $passwd;
-	Public $username;
-	Public $confirm;
-	Public $status;
-	Public $userid;
+	private $email;
+	private $passwd;
+	private $username;
+	private $confirm;
+	private $status;
+	private $userid;
 
 //constructor of user
 	function __construct($uemail){
@@ -21,10 +21,12 @@ class User extends Connection{
 
 //login functions checks and logs the user in the site
 	public function login($password){
+		$con = new Connection();
+		$conn = $con->connect();
 		$login;
-		$sql = "SELECT * FROM user WHERE email=\"$this->email\" and password=\"$password\"";
-		$result = mysqli_query($sql);
-			if(mysql_num_rows($result)>0){
+		$sql = "SELECT * FROM user WHERE email='$this->email' and password='$password'";
+		$result = mysqli_query($conn, $sql);
+			if(mysqli_num_rows($result)>0){
 				$login = 'true';
 			}
 			else{
@@ -34,13 +36,16 @@ class User extends Connection{
 	}
 
 //signup function creates a user account on the site
-	public function signup($passwd, $confirm){
+	public function signup($username, $passwd, $confirm){
+		$con = new Connection();
+		$conn = $con->connect();
 		if ($passwd == $confirm){
-			$sql = "SELECT * FROM Users WHERE email=\"$this->email\"";
-			$result = mysql_query($sql);
-			if(mysql_num_rows($result)<1){
+			$sql = "SELECT * FROM user WHERE email='$this->email'";
+			$result = mysqli_query($conn, $sql);
+			if(mysqli_num_rows($result)<1){
 				$sql = "INSERT INTO user(email, name, password, status, num_follower, num_following) VALUES 
-				($this->email, $this->username, $passwd, 0, 0, 0)";
+				('$this->email', '$username', '$passwd', 0, 0, 0)";
+				if(mysqli_query($conn, $sql)) echo "success!";
 			}
 			else{
 				echo "<p class = \"email\">Email already in use please try with another</p>";

@@ -9,7 +9,7 @@ if( isset($_POST['login']) ){
 //signup the user
 else if( isset($_POST['register']) ){
 	$user = new user($_POST['email']);
-	$user->signup($_POST['password'], $_POST['confirm']);
+	$user->signup($_POST['name'], $_POST['password'], $_POST['confirm']);
 }
 
 else{
