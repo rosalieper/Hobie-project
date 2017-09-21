@@ -23,15 +23,15 @@ class User extends Connection{
 	public function login($password){
 		$con = new Connection();
 		$conn = $con->connect();
-		$login;
+		$login = 'false';
+
 		$sql = "SELECT * FROM user WHERE email='$this->email' and password='$password'";
 		$result = mysqli_query($conn, $sql);
-			if(mysqli_num_rows($result)>0){
-				$login = 'true';
+			if(mysqli_num_rows($result) > 0){
+				return $login = 'true';
 			}
 			else{
-				echo "<p class = ''>Wrong credentials or account not found</p>";
-				header('../index.php');
+				return $login = 'false';
 			}
 	}
 
@@ -45,7 +45,7 @@ class User extends Connection{
 			if(mysqli_num_rows($result)<1){
 				$sql = "INSERT INTO user(email, name, password, status, num_follower, num_following) VALUES 
 				('$this->email', '$username', '$passwd', 0, 0, 0)";
-				if(mysqli_query($conn, $sql)) echo "success!";
+				if(mysqli_query($conn, $sql)) header("../Patials/userpage.php");
 			}
 			else{
 				echo "<p class = \"email\">Email already in use please try with another</p>";

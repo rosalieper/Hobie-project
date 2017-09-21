@@ -3,7 +3,13 @@
 //logining the user in
 if( isset($_POST['login']) ){
 	$user = new user($_POST['email']);
-	$user->login($_POST['password']);
+	$login = $user->login($_POST['password']);
+	if($login){
+		header('location: ../Patials/userpage.php');
+	}
+	else{
+		echo 'not login';
+	}
 }
 
 //signup the user
