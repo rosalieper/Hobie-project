@@ -8,4 +8,6 @@ echo "<nav><ul>
 		</ul>
 		</nav>";
 
+
+//if user is loged in then navbar should be different :TODO
 ?>

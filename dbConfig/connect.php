@@ -3,7 +3,7 @@ class Connection {
 
 	public $servername = "localhost";
 	public $dbusername = "root";
-	public $dbpassword = "";
+	public $dbpassword = "root";
 	public $dbname = "Stack";
 
 // Create connection

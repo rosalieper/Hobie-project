@@ -53,5 +53,19 @@ class User extends Connection{
 		}
 	}
 
+	public function create_post(string $post){
+
+	}
+
+	public function delete_post(){
+
+	}
+	public function edit_post(){
+
+	}
+	public function comment_post(){
+		
+	}
+
 // to be continued : Register class, Connection handler, Insert post, PageUser, login :)
 }
