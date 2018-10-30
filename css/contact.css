@@ -1,5 +1,3 @@
-
-
 .form-style-4{
 	max-width: 450px;
 	margin:10px auto;
@@ -83,4 +81,8 @@
 .form-style-4 input[type=submit]:hover,
 .form-style-4 input[type=button]:hover{
 background: #6B9FFF;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> Moved all the css in partials folder php files as external css

@@ -11,7 +11,6 @@ function adjust_textarea(h) {
 </script>
 
 </head>
-
 <body>
 
 <form class="form-style-4" action="" method="post">
