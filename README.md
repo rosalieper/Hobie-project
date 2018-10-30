@@ -9,3 +9,10 @@ If you're looking to contribute to the repo you can:
 
 # Built With
 JS/jQuery, PHP, CSS Bootstrap and Materialize frameworks
+
+## Setting up on Linux OS 
+
+1) Install Lampp or Xampp
+2) Clone the project into your www/html or htdocs dir repectively
+3) Run it on your favorite browser as "localhost/Hobie-project"
+4) Enjoy!
