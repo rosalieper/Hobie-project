@@ -4,7 +4,7 @@ class Connection {
 	public $servername = "localhost";
 	public $dbusername = "root";
 	public $dbpassword = "root";
-	public $dbname = "Stack";
+	public $dbname = "stack";
 
 // Create connection
 	function connect(){
