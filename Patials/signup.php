@@ -2,6 +2,7 @@
 	<head>
 	<link rel="stylesheet" type="text/css" href="../css/materialize.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/signup.css">
+	<link rel="stylesheet" type="text/css" href="../css/sign.css">
 	<?php include "head.php"; ?>
 	<script type="text/javascript">
 //auto expand textarea
@@ -10,7 +11,6 @@ function adjust_textarea(h) {
     h.style.height = (h.scrollHeight)+"px";
 }
 </script>
-
 	</head>
 	<body class = "">
 		<form class="form-style-7" method = "post" action = "../Scripts/accountManager.php">
@@ -44,13 +44,6 @@ function adjust_textarea(h) {
 	</body>
 	<script type="text/javascript" href = "../js/materialize.min.js"></script>
 </html>
-
-
-
-
-
-
-
 <!--form class = "container" method = "post" action = "../Scripts/accountManager.php">
 			<div>
 				<label>Email</label>
