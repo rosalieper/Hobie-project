@@ -1,10 +1,11 @@
 A list of all the contributors to this project
 ================================================
 
-Once you have had a merged patch to this file,
+Once you have had a merged patch to this project,
 you are free to add your name to this list.
 
 Name = github_username
 
 1) Perside Rosalie = rosaliper.
-2) Add yourname here! :)
+2) Moses = M05e5
+3) Add yourname here! :)
