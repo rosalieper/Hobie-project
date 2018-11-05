@@ -1,6 +1,7 @@
 <html>
 	<head>
 	<link rel="stylesheet" type="text/css" href="../css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/sign.css">
 	<?php include "head.php"; ?>
 	<script type="text/javascript">
 //auto expand textarea
@@ -9,6 +10,7 @@ function adjust_textarea(h) {
     h.style.height = (h.scrollHeight)+"px";
 }
 </script>
+
 <!-- link to external stylesheet -->
 <link rel ="stylesheet" type ="text/css" href="CSS/signup.css">
 

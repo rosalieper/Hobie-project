@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../css/materialize.min.css">
+		<link rel="stylesheet" type="text/css" href="../css/contact.css">
 		<?php include "head.php"; ?>
 	<script type="text/javascript">
 function adjust_textarea(h) {
@@ -10,8 +11,8 @@ function adjust_textarea(h) {
 </script>
 <!-- link to external css file -->
 <link rel = "stylesheet" type="text/css" href = "CSS/contact.css">
-</head>
 
+</head>
 <body>
 
 <form class="form-style-4" action="" method="post">

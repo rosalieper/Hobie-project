@@ -1,6 +1,7 @@
 <html>
 	<head>
 	<link rel="stylesheet" type="text/css" href="../css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/login.css">
 	<?php include "head.php"; ?>
 	<script type="text/javascript">
 //auto expand textarea
@@ -11,6 +12,7 @@ function adjust_textarea(h) {
 </script>
 <!-- link to external stylesheet -->
 <link rel= "stylesheet" type ="text/css" href="CSS/login.css"
+
 	</head>
 	<body class = "">
 		<form class="form-style-7" method = "post" action = "../Scripts/accountManager.php">
