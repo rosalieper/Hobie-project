@@ -1,6 +1,7 @@
 <html>
 	<head>
 	<link rel="stylesheet" type="text/css" href="../css/materialize.min.css">
+	<link rel="stylesheet" type="text/css" href="../css/signup.css">
 	<link rel="stylesheet" type="text/css" href="../css/sign.css">
 	<?php include "head.php"; ?>
 	<script type="text/javascript">
@@ -43,13 +44,6 @@ function adjust_textarea(h) {
 	</body>
 	<script type="text/javascript" href = "../js/materialize.min.js"></script>
 </html>
-
-
-
-
-
-
-
 <!--form class = "container" method = "post" action = "../Scripts/accountManager.php">
 			<div>
 				<label>Email</label>
