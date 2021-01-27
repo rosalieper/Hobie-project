@@ -3,6 +3,13 @@
 # Check https://circleci.com/docs/2.0/language-php/ for more details
 #
 version: 2
+workflows:
+  running_ci:
+    jobs:
+      - build
+      - print_env_variable:
+          requires:
+            - build
 jobs:
   build:
     docker:
@@ -58,17 +65,11 @@ jobs:
       #- run: ./vendor/bin/codecept run
 
   #example job
-  print_hello_world:
+  print_env_variable:
     docker:
         - image: circle/node:13.8.0
     steps:
-        - run: echo "hello_world"
-
-workflow:
-  version: 2
-  btd:
-    jobs:
-      - build
-      - print_hello_world:
-          requires:
-            - build
+        - run:
+            name: "echo an env var that is part of our project"
+                 command: |
+                   echo $ORGANISATION_NAME
