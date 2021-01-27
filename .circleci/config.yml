@@ -71,5 +71,5 @@ jobs:
     steps:
         - run:
             name: "echo an env var that is part of our project"
-                 command: |
-                   echo $ORGANISATION_NAME
+            command: |
+              echo $ORGANISATION_NAME
