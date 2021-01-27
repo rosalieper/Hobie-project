@@ -67,7 +67,7 @@ jobs:
   #example job
   print_env_variable:
     docker:
-        - image: circle/php:7.1-node-browsers
+        - image: circleci/php:7.1-node-browsers
     steps:
         - run:
             name: "echo an env var that is part of our project"
