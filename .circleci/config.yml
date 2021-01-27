@@ -2,6 +2,7 @@
 #
 # Check https://circleci.com/docs/2.0/language-php/ for more details
 #
+workflows:
 version: 2
 jobs:
   build:
@@ -63,3 +64,12 @@ jobs:
         - image: circle/node:13.8.0
     steps:
         - run: echo "hello_world"
+
+workflow:
+  version: 2
+  btd:
+    jobs:
+      - build
+      - print_hello_world:
+          requires:
+            - build
