@@ -86,7 +86,7 @@ jobs:
         - run:
             name: "echo an env var that is part of our project"
             command: |
-              echo $ORGANISATION_NAME
+              echo ORGANISATION_NAME
 
 #try doing some data transfer from one job to another by sharing files
   save_hello_world_output:
@@ -95,8 +95,8 @@ jobs:
     steps:
       - run: echo "hello_world" > ~/output.txt
       - persist_to_workspace:
-        root: ~/
-        paths:
+          root: ~/
+          paths:
           - output.txt
       - print_pipeline_id
 
