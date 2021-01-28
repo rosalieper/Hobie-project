@@ -3,6 +3,16 @@
 # Check https://circleci.com/docs/2.0/language-php/ for more details
 #
 version: 2.1
+commands:
+  print_pipeline_id:
+    description: "A very simple command for demonstration purposes. print pipeline id"
+    parameters:
+      CIRCLE_WORKFLOW_ID:
+        type: string
+        default: pipeline.id
+    steps:
+      - run: echo << parameters.CIRCLE_WORKFLOW_ID >>
+
 workflows:
   running_ci:
     jobs:
@@ -88,6 +98,7 @@ jobs:
         root: ~/
         paths:
             - output.txt
+      - print_pipeline_id
   print_hello_world_output:
     docker:
       - image: circleci/php:7.1-node-browsers
