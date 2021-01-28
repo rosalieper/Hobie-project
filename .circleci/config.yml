@@ -10,6 +10,10 @@ workflows:
       - print_env_variable:
           requires:
             - build
+      - save_hello_world_output
+      - print_output_file:
+          requires:
+            - save_hello_world_output
 jobs:
   build:
     docker:
@@ -73,3 +77,21 @@ jobs:
             name: "echo an env var that is part of our project"
             command: |
               echo $ORGANISATION_NAME
+
+#try doing some data transfer from one job to another by sharing files
+  save_hello_world_output:
+    docker:
+      - image: circleci/php:7.1-node-browsers
+    steps:
+      - run: echo "hello_world" > output.txt
+        - persist_to_workspace:
+          root: ~/
+          paths:
+            - output.txt
+  print_hello_world_output:
+    docker:
+      - image: circleci/php:7.1-node-browsers
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: cat output.txt
