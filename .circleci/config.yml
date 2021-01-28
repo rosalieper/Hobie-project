@@ -93,16 +93,17 @@ jobs:
     docker:
       - image: circleci/php:7.1-node-browsers
     steps:
-      - run: echo "hello_world" > output.txt
+      - run: echo "hello_world" > ~/output.txt
       - persist_to_workspace:
         root: ~/
         paths:
-            - output.txt
+          - output.txt
       - print_pipeline_id
+
   print_hello_world_output:
     docker:
       - image: circleci/php:7.1-node-browsers
     steps:
       - attach_workspace:
           at: ~/
-      - run: cat output.txt
+      - run: cat ~/output.txt
