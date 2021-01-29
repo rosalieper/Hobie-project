@@ -3,6 +3,16 @@
 # Check https://circleci.com/docs/2.0/language-php/ for more details
 #
 version: 2.1
+commands:
+  print_pipeline_id:
+    description: "A very simple command for demonstration purposes. print pipeline id"
+    parameters:
+      CIRCLE_WORKFLOW_ID:
+        type: string
+        default: pipeline.id
+    steps:
+      - run: echo << parameters.CIRCLE_WORKFLOW_ID >>
+
 workflows:
   running_ci:
     jobs:
@@ -10,6 +20,10 @@ workflows:
       - print_env_variable:
           requires:
             - build
+      - save_hello_world_output
+      - print_hello_world_output:
+          requires:
+            - save_hello_world_output
 jobs:
   build:
     docker:
@@ -72,4 +86,24 @@ jobs:
         - run:
             name: "echo an env var that is part of our project"
             command: |
-              echo $ORGANISATION_NAME
+              echo ORGANISATION_NAME
+
+#try doing some data transfer from one job to another by sharing files
+  save_hello_world_output:
+    docker:
+      - image: circleci/php:7.1-node-browsers
+    steps:
+      - run: echo "hello_world" > ~/output.txt
+      - persist_to_workspace:
+          root: ~/
+          paths:
+          - output.txt
+      - print_pipeline_id
+
+  print_hello_world_output:
+    docker:
+      - image: circleci/php:7.1-node-browsers
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: cat ~/output.txt
