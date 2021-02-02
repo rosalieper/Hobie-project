@@ -17,6 +17,7 @@ workflows:
   running_ci:
     jobs:
       - build
+      #- create_infrastructure
       - print_env_variable:
           requires:
             - build
@@ -107,3 +108,16 @@ jobs:
       - attach_workspace:
           at: ~/
       - run: cat ~/output.txt
+
+  #prepare the infrastructure on aws
+  #create_infrastructure:
+   # docker:
+    #  - image: amazon/aws-cli
+    #steps:
+     # - checkout
+      #- run:
+       #   name: Ensure backend infrastructure exist
+        #  command: |
+         #   aws cloudformation deploy \
+          #    --template-file template.yml \
+           #   --stack-name my-stack
