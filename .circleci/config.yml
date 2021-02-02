@@ -17,7 +17,7 @@ workflows:
   running_ci:
     jobs:
       - build
-      - create_infrastructure
+      #- create_infrastructure
       - print_env_variable:
           requires:
             - build
