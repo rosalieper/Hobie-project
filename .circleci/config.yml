@@ -120,4 +120,4 @@ jobs:
           command: |
             aws cloudformation deploy \
               --template-file .circleci/template.yml \
-              --stack-name my-stack
+              --stack-name my-stack2
