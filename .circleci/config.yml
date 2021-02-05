@@ -18,13 +18,14 @@ workflows:
     jobs:
       - build
       - create_infrastructure
-      - print_env_variable:
-          requires:
-            - build
-      - save_hello_world_output
-      - print_hello_world_output:
-          requires:
-            - save_hello_world_output
+      #- smoke_test
+      #- print_env_variable:
+          #requires:
+           # - build
+     # - save_hello_world_output
+      #- print_hello_world_output:
+       #   requires:
+        #    - save_hello_world_output
 jobs:
   build:
     docker:
@@ -121,3 +122,14 @@ jobs:
             aws cloudformation deploy \
               --template-file .circleci/template.yml \
               --stack-name my-stack2
+
+  #new smoke test job
+  smoke_test:
+    docker:
+      - image: circleci/php:7.1-node-browsers
+    steps:
+      - checkout
+      - run:
+          name: ping a non existing website (smoke test should return failure)
+          command: |
+            curl https://google.com..me
