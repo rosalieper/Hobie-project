@@ -17,14 +17,15 @@ workflows:
   running_ci:
     jobs:
       - build
-      #- create_infrastructure
-      - print_env_variable:
-          requires:
-            - build
-      - save_hello_world_output
-      - print_hello_world_output:
-          requires:
-            - save_hello_world_output
+      - create_infrastructure
+      #- smoke_test
+      #- print_env_variable:
+          #requires:
+           # - build
+     # - save_hello_world_output
+      #- print_hello_world_output:
+       #   requires:
+        #    - save_hello_world_output
 jobs:
   build:
     docker:
@@ -110,14 +111,25 @@ jobs:
       - run: cat ~/output.txt
 
   #prepare the infrastructure on aws
-  #create_infrastructure:
-   # docker:
-    #  - image: amazon/aws-cli
-    #steps:
-     # - checkout
-      #- run:
-       #   name: Ensure backend infrastructure exist
-        #  command: |
-         #   aws cloudformation deploy \
-          #    --template-file template.yml \
-           #   --stack-name my-stack
+  create_infrastructure:
+    docker:
+      - image: amazon/aws-cli
+    steps:
+      - checkout
+      - run:
+          name: Ensure backend infrastructure exist
+          command: |
+            aws cloudformation deploy \
+              --template-file .circleci/template.yml \
+              --stack-name my-stack2
+
+  #new smoke test job
+  smoke_test:
+    docker:
+      - image: circleci/php:7.1-node-browsers
+    steps:
+      - checkout
+      - run:
+          name: ping a non existing website (smoke test should return failure)
+          command: |
+            curl https://google.com..me
