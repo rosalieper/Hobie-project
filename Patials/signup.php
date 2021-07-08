@@ -11,6 +11,10 @@ function adjust_textarea(h) {
     h.style.height = (h.scrollHeight)+"px";
 }
 </script>
+
+<!-- link to external stylesheet -->
+<link rel ="stylesheet" type ="text/css" href="CSS/signup.css">
+
 	</head>
 	<body class = "">
 		<form class="form-style-7" method = "post" action = "../Scripts/accountManager.php">
@@ -35,7 +39,7 @@ function adjust_textarea(h) {
 				<label>Confirm</label>
 				<input type = "password" name = "confirm" placeholder = "confirm" required>
 				<span>Confirm your password please</span>
-			</li>	
+			</li>
 			<li>
 			    <input type="submit" value="Login" class="btn btn-primary" >
 			</li>

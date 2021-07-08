@@ -10,6 +10,8 @@ function adjust_textarea(h) {
     h.style.height = (h.scrollHeight)+"px";
 }
 </script>
+<!-- link to external stylesheet -->
+<link rel= "stylesheet" type ="text/css" href="CSS/login.css"
 
 	</head>
 	<body class = "">

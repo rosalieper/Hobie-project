@@ -9,6 +9,8 @@ function adjust_textarea(h) {
     h.style.height = (h.scrollHeight)+"px";
 }
 </script>
+<!-- link to external css file -->
+<link rel = "stylesheet" type="text/css" href = "CSS/contact.css">
 
 </head>
 <body>
